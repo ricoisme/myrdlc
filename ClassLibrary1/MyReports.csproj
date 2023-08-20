@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>net6.0;net472</TargetFrameworks>
+        <!--<ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>-->
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Remove="RDLCs\Report1.rdlc" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Include="RDLCs\Report1.rdlc" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\ClassLibrary3\ClassLibrary3.csproj" />
+    </ItemGroup>
+
+</Project>

@@ -30,13 +30,13 @@ namespace MyRDLC.Controllers
         {
             var report = new LocalReport();
             var items = new[] {
-                new ClassLibrary1.ReportItem { Description = "Widget 6000", Price = 108, Qty = 1 },
-                new ClassLibrary1.ReportItem { Description = "Gizmo MAX", Price = 108, Qty = 25 }
+                new ClassLibrary2.ReportItem { Description = "Widget 6000", Price = 108, Qty = 1 },
+                new ClassLibrary2.ReportItem { Description = "Gizmo MAX", Price = 108, Qty = 25 }
             };
             var parameters = new[] { new ReportParameter("Title", "Hello ReportViewCore") };
 
-            var assembly = typeof(ClassLibrary1.ReportItem).Assembly;
-            using var rs = assembly.GetManifestResourceStream("ClassLibrary1.RDLCs.Report1.rdlc");
+            var assembly = typeof(MyReports.Const).Assembly;
+            using var rs = assembly.GetManifestResourceStream("MyReports.RDLCs.Report1.rdlc");
             report.LoadReportDefinition(rs);
             report.DataSources.Add(new ReportDataSource("ReportItem", items));
             report.SetParameters(parameters);
@@ -48,13 +48,13 @@ namespace MyRDLC.Controllers
         {
             var report = new LocalReport();
             var items = new[] {
-                new ClassLibrary1.ReportItem { Description = "Widget 6000", Price = 108, Qty = 1 },
-                new ClassLibrary1.ReportItem { Description = "Gizmo MAX", Price = 108, Qty = 25 }
+                new ClassLibrary2.ReportItem { Description = "Widget 6000", Price = 108, Qty = 1 },
+                new ClassLibrary2.ReportItem { Description = "Gizmo MAX", Price = 108, Qty = 25 }
             };
             var parameters = new[] { new ReportParameter("Title", "Hello ReportViewCore") };
 
-            var assembly = typeof(ClassLibrary1.ReportItem).Assembly;
-            using var rs = assembly.GetManifestResourceStream("ClassLibrary1.RDLCs.Report1.rdlc");
+            var assembly = typeof(MyReports.Const).Assembly;
+            using var rs = assembly.GetManifestResourceStream("MyReports.RDLCs.Report1.rdlc");
             report.LoadReportDefinition(rs);
             report.DataSources.Add(new ReportDataSource("ReportItem", items));
             report.SetParameters(parameters);
