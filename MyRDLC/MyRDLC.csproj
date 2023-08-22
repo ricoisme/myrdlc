@@ -12,7 +12,6 @@
 
     <ItemGroup>
       <ProjectReference Include="..\ClassLibrary1\MyReports.csproj" />
-      <ProjectReference Include="..\ClassLibrary2\ClassLibrary2.csproj" />
     </ItemGroup>
 
 </Project>

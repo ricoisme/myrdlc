@@ -14,11 +14,15 @@ namespace MyRDLC.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
+        private readonly List<ClassLibrary2.ReportItem> _items;
         public HomeController(ILogger<HomeController> logger)
         {
+            //Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
             _logger = logger;
-            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+            _items = new List<ClassLibrary2.ReportItem> {
+                new ClassLibrary2.ReportItem { Description = "Widget 6000", Price = 108, Qty = 1 },
+                new ClassLibrary2.ReportItem { Description = "Gizmo MAX", Price = 108, Qty = 25 }
+            };
         }
 
         public IActionResult Index()
@@ -29,16 +33,12 @@ namespace MyRDLC.Controllers
         public IActionResult Export()
         {
             var report = new LocalReport();
-            var items = new[] {
-                new ClassLibrary2.ReportItem { Description = "Widget 6000", Price = 108, Qty = 1 },
-                new ClassLibrary2.ReportItem { Description = "Gizmo MAX", Price = 108, Qty = 25 }
-            };
             var parameters = new[] { new ReportParameter("Title", "Hello ReportViewCore") };
 
             var assembly = typeof(MyReports.Const).Assembly;
             using var rs = assembly.GetManifestResourceStream("MyReports.RDLCs.Report1.rdlc");
             report.LoadReportDefinition(rs);
-            report.DataSources.Add(new ReportDataSource("ReportItem", items));
+            report.DataSources.Add(new ReportDataSource("ReportItem", _items));
             report.SetParameters(parameters);
             var result = report.Render("EXCEL");
             return File(result, "application/msexcel", "Export.xls");
@@ -47,16 +47,12 @@ namespace MyRDLC.Controllers
         public IActionResult Print()
         {
             var report = new LocalReport();
-            var items = new[] {
-                new ClassLibrary2.ReportItem { Description = "Widget 6000", Price = 108, Qty = 1 },
-                new ClassLibrary2.ReportItem { Description = "Gizmo MAX", Price = 108, Qty = 25 }
-            };
             var parameters = new[] { new ReportParameter("Title", "Hello ReportViewCore") };
 
             var assembly = typeof(MyReports.Const).Assembly;
             using var rs = assembly.GetManifestResourceStream("MyReports.RDLCs.Report1.rdlc");
             report.LoadReportDefinition(rs);
-            report.DataSources.Add(new ReportDataSource("ReportItem", items));
+            report.DataSources.Add(new ReportDataSource("ReportItem", _items));
             report.SetParameters(parameters);
             var result = report.Render("PDF");
             return File(result, "application/pdf");

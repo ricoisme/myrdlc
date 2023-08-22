@@ -54,7 +54,7 @@
                   <TextRun>
                     <Value>=Parameters!Title.Value</Value>
                     <Style>
-                      <FontSize>22pt</FontSize>
+                      <FontSize>14pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -65,7 +65,7 @@
             <Top>0.64064cm</Top>
             <Left>0.58773cm</Left>
             <Height>1.02333cm</Height>
-            <Width>5.41042cm</Width>
+            <Width>9.00875cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
