@@ -7,9 +7,7 @@
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>    
 </div>
 <div class="text-center">
-    <h1 class="display-4">RDLC Print</h1>
-    <div>
-        <a href="../home/print" target="_blank" class="btn btn-primary">Print PDF</a>
-        <a href="../home/export" target="_blank" class="btn btn-secondary">Export Excel</a>
-    </div>
+    <h1 class="display-4">RDLC Print</h1>    
+    <a target="_blank" asp-action="exportpdf" asp-controller="home">Export PDF</a>
+    <a target="_blank" asp-action="exportxlsx" asp-controller="home">Export Excel</a>
 </div>
